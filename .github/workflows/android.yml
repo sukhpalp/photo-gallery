@@ -33,6 +33,9 @@ jobs:
       - name: Prepare app for build
         run: ionic capacitor sync android --prod
 
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
       - uses: sparkfabrik/android-build-action@v1.4.0
         if: inputs.PRODUCTION_RELEASE == false
         with:
