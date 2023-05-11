@@ -63,5 +63,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: wfnews-dev-${{ github.sha }}.apk
-          path: './android/wfnews-dev-${{ github.sha }}.apk'
+          path: 'wfnews-dev-${{ github.sha }}.apk'
   
