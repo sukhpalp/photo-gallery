@@ -79,7 +79,7 @@ jobs:
           # json-key-data: "JSON keystore file content"
           upload-to-play-store: false
           project-path: './android/'
-          output-path: $RUNNER_TEMP/wfnews-dev-${{ github.sha }}.apk
+          output-path: wfnews-dev-${{ github.sha }}.apk
           fastlane-env: "debug"
           ruby-version: "head"
           bundler-version: "2.3"
@@ -89,11 +89,12 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: wfnews-dev-${{ github.sha }}.apk
-          path: '$RUNNER_TEMP/wfnews-dev-${{ github.sha }}.apk'
+          path: '/wfnews-dev-${{ github.sha }}.apk'
           retention-days: 3
   
       - name: Post to a Slack channel
         id: slack
+        if: always()
         uses: slackapi/slack-github-action@v1.24.0
         with:
           # Slack channel id, channel name, or user id to post message.
